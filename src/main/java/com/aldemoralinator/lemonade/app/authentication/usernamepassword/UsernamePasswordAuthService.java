@@ -18,8 +18,8 @@ import com.aldemoralinator.lemonade.app.authentication.usernamepassword.payload.
 import com.aldemoralinator.lemonade.app.authentication.usernamepassword.payload.request.UsernamePasswordRegisterRequestDTO;
 import com.aldemoralinator.lemonade.app.authentication.usernamepassword.payload.response.UsernamePasswordAuthResponseDTO;
 import com.aldemoralinator.lemonade.config.security.jwt.JWTUtil;
-import com.aldemoralinator.lemonade.model.Account;
-import com.aldemoralinator.lemonade.model.Role;
+import com.aldemoralinator.lemonade.model.entity.Account;
+import com.aldemoralinator.lemonade.model.entity.Role;
 import com.aldemoralinator.lemonade.repository.AccountRepository;
 import com.aldemoralinator.lemonade.repository.RoleRepository;
 

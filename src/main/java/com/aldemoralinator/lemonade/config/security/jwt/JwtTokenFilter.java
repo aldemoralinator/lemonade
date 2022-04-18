@@ -20,7 +20,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.aldemoralinator.lemonade.config.security.AppUserDetailsService;
-import com.aldemoralinator.lemonade.model.Account;
+import com.aldemoralinator.lemonade.model.entity.Account;
 @Component
 public class JwtTokenFilter extends OncePerRequestFilter {
 	

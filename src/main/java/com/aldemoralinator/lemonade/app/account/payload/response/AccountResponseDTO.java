@@ -3,7 +3,7 @@ package com.aldemoralinator.lemonade.app.account.payload.response;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.aldemoralinator.lemonade.model.Role;
+import com.aldemoralinator.lemonade.model.entity.Role;
 
 import lombok.Getter;
 

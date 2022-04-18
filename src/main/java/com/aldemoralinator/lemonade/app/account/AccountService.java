@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aldemoralinator.lemonade.app.account.payload.response.AccountResponseDTO;
-import com.aldemoralinator.lemonade.model.Account;
+import com.aldemoralinator.lemonade.model.entity.Account;
 import com.aldemoralinator.lemonade.repository.AccountRepository;
 
 @Service

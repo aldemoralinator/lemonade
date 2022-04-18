@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.aldemoralinator.lemonade.model.Account;
+import com.aldemoralinator.lemonade.model.entity.Account;
 import com.aldemoralinator.lemonade.repository.AccountRepository;
 
 @Service

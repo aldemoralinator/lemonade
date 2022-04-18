@@ -4,7 +4,8 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.aldemoralinator.lemonade.model.Account;
+import com.aldemoralinator.lemonade.model.entity.Account;
+
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
 	

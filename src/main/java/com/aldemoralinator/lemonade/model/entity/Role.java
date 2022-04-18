@@ -1,4 +1,4 @@
-package com.aldemoralinator.lemonade.model;
+package com.aldemoralinator.lemonade.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
+
+import com.aldemoralinator.lemonade.model.constant.ERole;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

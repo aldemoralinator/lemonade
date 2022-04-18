@@ -1,5 +1,6 @@
-package com.aldemoralinator.lemonade.model;
+package com.aldemoralinator.lemonade.model.entity;
 
+import java.sql.Date;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -58,6 +60,15 @@ public class Account implements UserDetails {
 	
 	@Getter
 	private final boolean isEnabled = true;
+	
+	@Getter 
+	private Date created_at;
+	
+	@Getter 
+	private Date updated_at;
+	
+	@OneToMany(mappedBy = "account")
+    Set<AccountProject> accountProjects;
 	
 	@Getter
 	@ManyToMany(fetch=FetchType.EAGER)
