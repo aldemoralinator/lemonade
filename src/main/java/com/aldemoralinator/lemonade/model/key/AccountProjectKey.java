@@ -19,12 +19,12 @@ public class AccountProjectKey implements Serializable {
 
 	@Getter
 	@Setter
-	@Column(name="user_id")
+	@Column(name="user_id", nullable=false)
 	private Long userId;
 
 	@Getter
 	@Setter
-	@Column(name="project_id")
+	@Column(name="project_id", nullable=false)
 	private Long projectId;
 	
 	public AccountProjectKey() { }

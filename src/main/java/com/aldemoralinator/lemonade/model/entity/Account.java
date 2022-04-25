@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.mail.internet.AddressException;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,6 +18,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -41,12 +45,15 @@ public class Account implements UserDetails {
 	private Long id;
 	
 	@Getter
+	@Column(name="username", length=50, nullable=false, unique=true)
 	private String username;
 	
 	@Getter
+	@Column(name="email", length=255, nullable=false, unique=true)
 	private String email;
 	
 	@Getter
+	@Column(name="password", length=255, nullable=true)
 	private String password;
 	
 	@Getter
@@ -62,13 +69,20 @@ public class Account implements UserDetails {
 	private final boolean isEnabled = true;
 	
 	@Getter 
-	private Date created_at;
+	@Column(name="created_at", nullable=false)
+	private Date createdAt;
 	
 	@Getter 
-	private Date updated_at;
+	@Column(name="updated_at", nullable=false)
+	private Date updatedAt;
 	
-	@OneToMany(mappedBy = "account")
-    Set<AccountProject> accountProjects;
+	@Getter
+	@OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Project> projects;
+	
+	@Getter
+	@OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<AccountProject> accountProjects;
 	
 	@Getter
 	@ManyToMany(fetch=FetchType.EAGER)
@@ -132,12 +146,11 @@ public class Account implements UserDetails {
         
         private void validate() {
         	ExceptionMessageBuilder emb = new ExceptionMessageBuilder();
-        	//if (this.id == null) emb.append("Id must not be null"); // DO NOT SUBMIT
         	if (this.username == null) emb.append("Username must not be null");
         	if (this.email == null) emb.append("Email must not be null");
+        	if (this.roles == null && this.roles.isEmpty()) emb.append("Roles must not be empty");
         	emb.throwExceptionIfNotEmpty();
         }
-        
         
         public static class RolesBuilder {
         	 
@@ -146,6 +159,11 @@ public class Account implements UserDetails {
         	 
         	 public RolesBuilder(Builder builder) { 
         		 this.builder = builder;
+        	 }
+        	 
+        	 public RolesBuilder addAllRoles(Set<Role> roles) {
+        		 this.roles.addAll(roles);
+        		 return this;
         	 }
         	 
         	 public RolesBuilder addRole(Role role) {

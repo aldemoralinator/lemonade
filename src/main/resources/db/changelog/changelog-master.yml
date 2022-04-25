@@ -5,3 +5,7 @@ databaseChangeLog:
       file: db/changelog/changes/0002_2022_04_16_create-tbl-role.sql
   - include:
       file: db/changelog/changes/0003_2022_04_16_create-tbl-account-role.sql
+  - include:
+      file: db/changelog/changes/0004_2022_04_18_create-tbl-project.sql
+  - include:
+      file: db/changelog/changes/0005_2022_04_18_create-tbl-account-project.sql

@@ -5,7 +5,7 @@ CREATE TABLE account (
 	id serial PRIMARY KEY,
 	username VARCHAR ( 50 ) UNIQUE NOT NULL,
 	email VARCHAR ( 255 ) UNIQUE NOT NULL,
-	password VARCHAR ( 50 ) NULL,
+	password VARCHAR ( 255 ) NULL,
 	is_account_non_expired BOOLEAN NOT NULL,
 	is_account_non_locked BOOLEAN NOT NULL,
     is_credentials_non_expired BOOLEAN NOT NULL,
